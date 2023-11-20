@@ -1,4 +1,4 @@
-# README.md - Guia Rápido para Testes com Cypress
+# Guia Rápido para Testes com Cypress
 
 Este guia fornece instruções simplificadas para configurar e executar testes com Cypress no projeto AluraPic.
 
