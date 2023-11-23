@@ -1,11 +1,18 @@
 describe("Página de cadastro", () => {
-  it("Preencher os campos do formulário corretamente para cadastrar um novo usuário", () => {
-    cy.visit("http://localhost:4200/#/home");
-    cy.contains("a", "Register now").click();
-    cy.get('[data-test="email"]').type("victor@email.com.br");
-    cy.get('[data-test="fullName"]').type("Victor Lopes");
-    cy.get('[data-test="registerUserName"]').type("victorl");
-    cy.get('[data-test="registerPassword"]').type("victor123");
-    cy.contains("button", "Register").click();
+  beforeEach(() => {
+    cy.visit("http://localhost:4200/");
+  });
+
+  const usuarios = require("../fixtures/usuarios.json");
+
+  usuarios.forEach((usuario) => {
+    it("Preencher os campos do formulário corretamente para cadastrar um novo usuário", () => {
+      cy.get('[data-test="register"]').click();
+      cy.get('input[data-test="email"]').type(usuario.email);
+      cy.get('input[data-test="fullName"]').type(usuario.fullName);
+      cy.get('input[data-test="registerUserName"]').type(usuario.userName);
+      cy.get('input[data-test="registerPassword"]').type(usuario.password);
+      cy.get('[data-test="btnRegister"]').click();
+    });
   });
 });
