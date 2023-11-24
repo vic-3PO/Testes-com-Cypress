@@ -33,6 +33,7 @@ npx cypress open
 2. No Prompt de Comando, navegue até o diretório `alurapic` e execute:
 
    ```bash
+   cd .\alurapic\
    npm install
    npm start
    ```
